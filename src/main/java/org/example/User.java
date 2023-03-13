@@ -22,17 +22,26 @@ public class User {
     }
 
     public void setUserLogin(String login) {
-        if (login == null || login.isEmpty() || login.isBlank()) {
+        if (login == null
+                || login.isEmpty()
+                || login.isBlank()) {
             throw new IllegalArgumentException("Введите корректный логин.");
         }
         this.userLogin = login;
     }
 
     public void setUserEmail(String email) {
-        if (email == null || email.isEmpty() || email.isBlank()) {
+
+        if (email == null
+                || email.isEmpty()
+                || email.isBlank()
+                || !email.contains("@")
+                || !email.contains(".")) {
             throw new IllegalArgumentException("Введите корректную почту.");
+        } else {
+            this.userEmail = email;
         }
-        this.userEmail = email;
     }
+
 
 }
